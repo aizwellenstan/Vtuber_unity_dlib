@@ -51,6 +51,8 @@ def main():
     os_name = system()
     if os_name in ['Windows']: # CAP_DSHOW is required on my windows PC to get 30 FPS
         cap = cv2.VideoCapture(args.cam+cv2.CAP_DSHOW)
+    elif os_name in ['Darwin']: # MAC with CamTwist
+        cap = cv2.VideoCapture(1)
     else: # linux PC is as usual
         cap = cv2.VideoCapture(args.cam)
     cap.set(cv2.CAP_PROP_FPS, 30)
